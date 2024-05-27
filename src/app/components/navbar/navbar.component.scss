@@ -1,0 +1,24 @@
+mat-toolbar {
+    height: 50px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+mat-toolbar .items {
+    width: 60dvw;
+}
+
+mat-toolbar .buttons, .items, .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+mat-icon {
+    scale: 150%;
+}
