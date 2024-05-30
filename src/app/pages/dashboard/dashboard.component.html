@@ -1,0 +1,34 @@
+<div>
+  <div *ngIf="!useralias || useralias === ''">
+    <div class="login-container">
+      <div class="login-title">Motorify</div>
+      <div class="login-description">Please log in to use this application</div>
+      <app-login></app-login>
+    </div>
+  </div>
+  <div *ngIf="useralias || useralias !== ''" class="container">
+    <h1>
+      Welcome to Motorify <i class="username">{{ username }}</i> !
+    </h1>
+    <h3>Shortcuts</h3>
+    <div class="shortcuts">
+      <app-shortcut title="Bike List" link="bike" icon="list"></app-shortcut>
+      <app-shortcut
+        title="Create Bike"
+        link="bike/create"
+        icon="add_circle"
+      ></app-shortcut>
+      <app-shortcut
+        title="Manufacturer List"
+        link="manufacturer"
+        icon="list"
+      ></app-shortcut>
+      <app-shortcut
+        title="Create Manufacturer"
+        link="manufacturer/create"
+        icon="add_circle"
+        *appIsInRole="'admin'"
+      ></app-shortcut>
+    </div>
+  </div>
+</div>

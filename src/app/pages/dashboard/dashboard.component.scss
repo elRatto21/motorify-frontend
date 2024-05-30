@@ -1,0 +1,26 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60dvh;
+    gap: 12px;
+}
+
+.login-title {
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shortcuts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
