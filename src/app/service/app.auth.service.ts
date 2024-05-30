@@ -47,7 +47,6 @@ export class AppAuthService {
   }
 
   public getRoles(): Observable<Array<string>> {
-    console.log(this._decodedAccessToken);
     if (this._decodedAccessToken !== null) {
       return new Observable<Array<string>>((observer) => {
         if (this._decodedAccessToken.resource_access.motorify.roles) {
@@ -83,6 +82,7 @@ export class AppAuthService {
     this.oauthService.logOut();
     this.useraliasSubject.next('');
     this.usernameSubject.next('');
+    localStorage.removeItem('username');
   }
 
   public login() {
@@ -112,6 +112,7 @@ export class AppAuthService {
       if (claims !== null) {
         if (claims['preferred_username'] !== '') {
           this.useraliasSubject.next(claims['preferred_username']);
+          localStorage.setItem('username', claims['preferred_username']);
         }
       }
     }
