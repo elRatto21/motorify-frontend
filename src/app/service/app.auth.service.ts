@@ -47,7 +47,6 @@ export class AppAuthService {
   }
 
   public getRoles(): Observable<Array<string>> {
-    console.log(this._decodedAccessToken);
     if (this._decodedAccessToken !== null) {
       return new Observable<Array<string>>((observer) => {
         if (this._decodedAccessToken.resource_access.motorify.roles) {
