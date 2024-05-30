@@ -6,12 +6,13 @@
     <div class="buttons">
       <button mat-button [routerLink]="['bike']">Bikes</button>
       <button mat-button [routerLink]="['manufacturer']">Manufacturers</button>
-      <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+      <button mat-icon-button [matMenuTriggerFor]="accountMenu" (click)="loadUsername()">
         <mat-icon>account_circle</mat-icon>
       </button>
     </div>
   </div>
 </mat-toolbar>
 <mat-menu #accountMenu="matMenu">
+  <div mat-menu-item>Logged in as <b>{{ username }}</b></div>
   <button mat-menu-item (click)="logout()">Logout</button>
 </mat-menu>
