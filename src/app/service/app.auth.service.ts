@@ -82,7 +82,6 @@ export class AppAuthService {
     this.oauthService.logOut();
     this.useraliasSubject.next('');
     this.usernameSubject.next('');
-    localStorage.removeItem('username');
   }
 
   public login() {
@@ -112,7 +111,6 @@ export class AppAuthService {
       if (claims !== null) {
         if (claims['preferred_username'] !== '') {
           this.useraliasSubject.next(claims['preferred_username']);
-          localStorage.setItem('username', claims['preferred_username']);
         }
       }
     }
