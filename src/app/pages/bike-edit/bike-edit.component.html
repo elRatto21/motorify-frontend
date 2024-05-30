@@ -1,0 +1,77 @@
+<div class="container">
+  <h1>
+    {{ title }}
+  </h1>
+  <form (ngSubmit)="save(bikeForm.value)" [formGroup]="bikeForm!">
+    <div class="inputs">
+      <mat-form-field>
+        <mat-label>Manufacturer</mat-label>
+        <mat-select name="manufacturer" formControlName="manufacturer" required>
+          @for (manufacturer of manufacturerList; track manufacturer) {
+          <mat-option [value]="manufacturer.id">{{
+            manufacturer.name
+          }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Model</mat-label>
+        <input
+          #inputModel
+          formControlName="model"
+          matInput
+          maxlength="50"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Bike Type</mat-label>
+        <mat-select name="bikeType" formControlName="bikeType" required>
+          @for (bikeType of bikeTypeList; track bikeType) {
+          <mat-option [value]="bikeType">{{ bikeType }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Year</mat-label>
+        <input formControlName="year" matInput required type="number" min="0" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Horsepower</mat-label>
+        <input
+          formControlName="horsepower"
+          matInput
+          required
+          type="number"
+          min="0"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Weight</mat-label>
+        <input
+          formControlName="weight"
+          matInput
+          required
+          type="number"
+          min="0"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Mileage</mat-label>
+        <input
+          formControlName="mileage"
+          matInput
+          required
+          type="number"
+          min="0"
+        />
+      </mat-form-field>
+    </div>
+    <div class="actions">
+      <button mat-raised-button (click)="back()">Cancel</button>
+      <button [disabled]="!bikeForm.valid" color="primary" mat-raised-button>
+        Save
+      </button>
+    </div>
+  </form>
+</div>
