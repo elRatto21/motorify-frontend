@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>
+    {{ title }}
+  </h1>
+  <form
+    (ngSubmit)="save(manufacturerForm.value)"
+    [formGroup]="manufacturerForm!"
+  >
+    <div class="inputs">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          #inputName
+          formControlName="name"
+          matInput
+          maxlength="255"
+          required
+        />
+        <mat-hint align="end">{{ inputName.value.length || 0 }}/255</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Country</mat-label>
+        <input
+          #inputCountry
+          formControlName="country"
+          matInput
+          maxlength="50"
+          required
+        />
+        <mat-hint align="end">{{ inputCountry.value.length || 0 }}/50</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="actions">
+      <button mat-raised-button (click)="back()">Cancel</button>
+      <button
+        [disabled]="!manufacturerForm.valid"
+        color="primary"
+        mat-raised-button
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>
