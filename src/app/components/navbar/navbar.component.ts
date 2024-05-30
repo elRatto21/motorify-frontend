@@ -14,7 +14,9 @@ export class NavbarComponent {
   }
 
   loadUsername() {
-    this.username = localStorage.getItem('username') as string;
+    this.authService.useraliasObservable.subscribe((alias) => {
+      this.username = alias;
+    });
   }
 
   logout() {
