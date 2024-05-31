@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { BikeService } from '../../service/bike.service';
 import { Router } from '@angular/router';
+import { Manufacturer } from '../../data/manufacturer';
 
 export interface Bike {
   id: number;
-  manufacturer: string;
+  manufacturer: Manufacturer;
   model: string;
 }
 

@@ -1,6 +1,8 @@
+import { Manufacturer } from "./manufacturer";
+
 export class Bike {
     public id!: number;
-    public manufacturer = '';
+    public manufacturer = new Manufacturer();
     public model = '';
     public bikeType = '';
     public year = 0;
