@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BikeService } from '../../service/bike.service';
 import { ManufacturerService } from '../../service/manufacturer.service';
 import { Manufacturer } from '../../data/manufacturer';
+import { AppAuthService } from '../../service/app.auth.service';
 
 @Component({
   selector: 'app-bike-edit',
@@ -27,6 +28,7 @@ export class BikeEditComponent {
     'TOURING',
   ];
   title: string = '';
+  username: string = '';
 
   public bikeForm = new UntypedFormGroup({
     manufacturer: new UntypedFormControl(''),
@@ -43,7 +45,8 @@ export class BikeEditComponent {
     private bikeService: BikeService,
     private manufacturerService: ManufacturerService,
     private formBuilder: UntypedFormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AppAuthService
   ) {}
 
   ngOnInit(): void {
@@ -64,11 +67,14 @@ export class BikeEditComponent {
     this.manufacturerService.getList().subscribe((manufacturers) => {
       this.manufacturerList = manufacturers;
     });
+    this.authService.useraliasObservable.subscribe((alias) => {
+      this.username = alias;
+    });
   }
 
   async save(formData: any) {
     this.bike = Object.assign(formData);
-    this.bike.username = localStorage.getItem('username') as string;
+    this.bike.username = this.username;
     if (this.bike.id) {
       this.bikeService.update(this.bike).subscribe({
         next: () => {

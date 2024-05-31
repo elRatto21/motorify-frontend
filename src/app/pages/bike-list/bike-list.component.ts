@@ -41,5 +41,9 @@ export class BikeListComponent {
     });
   }
 
+  create() {
+    this.router.navigate(['bike/create']);
+  }
+
   displayedColumns: string[] = ['id', 'manufacturer', 'model', 'actions'];
 }
