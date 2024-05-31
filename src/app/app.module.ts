@@ -18,7 +18,7 @@ import {
   HttpClientModule,
   HttpClientXsrfModule,
 } from '@angular/common/http';
-import { AppLoginComponent } from './components/app-login/app-login.component';
+import { LoginComponent } from './components/login/login.component';
 import { AuthConfig, OAuthModule, OAuthStorage } from 'angular-oauth2-oidc';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppAuthService } from './service/app.auth.service';
@@ -40,6 +40,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { BikeInfoComponent } from './pages/bike-info/bike-info.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ShortcutComponent } from './components/shortcut/shortcut.component';
+import {MatCardModule} from '@angular/material/card';
+import { MaintenanceListComponent } from './components/maintenance-list/maintenance-list.component';
+import { ExpenseListComponent } from './components/expense-list/expense-list.component';
+import { ExpenseEditComponent } from './pages/expense-edit/expense-edit.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {provideNativeDateAdapter} from '@angular/material/core';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/motorify',
@@ -68,12 +74,15 @@ export function storageFactory(): OAuthStorage {
     IsInRolesDirective,
     NavbarComponent,
     ManufacturerListComponent,
-    AppLoginComponent,
+    LoginComponent,
     ManufacturerEditComponent,
     BikeEditComponent,
     BikeInfoComponent,
     DashboardComponent,
     ShortcutComponent,
+    MaintenanceListComponent,
+    ExpenseListComponent,
+    ExpenseEditComponent,
   ],
   imports: [
     HttpClientModule,
@@ -91,10 +100,12 @@ export function storageFactory(): OAuthStorage {
     MatTableModule,
     MatToolbar,
     MatFormFieldModule,
+    MatCardModule,
     MatInputModule,
     MatLabel,
     MatSelectModule,
     MatHint,
+    MatDatepickerModule,
     MatSortModule,
     OAuthModule.forRoot({ resourceServer: { sendAccessToken: true } }),
     HttpClientXsrfModule.withOptions({
@@ -104,6 +115,7 @@ export function storageFactory(): OAuthStorage {
   ],
   providers: [
     provideAnimationsAsync(),
+    provideNativeDateAdapter(),
     { provide: AuthConfig, useValue: authConfig },
     { provide: HTTP_INTERCEPTORS, useClass: HttpXSRFInterceptor, multi: true },
     {
