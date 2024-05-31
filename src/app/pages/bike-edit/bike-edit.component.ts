@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
@@ -16,7 +16,7 @@ import { AppAuthService } from '../../service/app.auth.service';
   templateUrl: './bike-edit.component.html',
   styleUrl: './bike-edit.component.scss',
 })
-export class BikeEditComponent {
+export class BikeEditComponent implements OnInit {
   bike = new Bike();
   manufacturerList: Manufacturer[] = [];
   bikeTypeList: string[] = [

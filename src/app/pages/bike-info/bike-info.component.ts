@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BikeService } from '../../service/bike.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Bike } from '../../data/bike';
@@ -8,7 +8,7 @@ import { Bike } from '../../data/bike';
   templateUrl: './bike-info.component.html',
   styleUrl: './bike-info.component.scss',
 })
-export class BikeInfoComponent {
+export class BikeInfoComponent implements OnInit {
   constructor(
     private bikeService: BikeService,
     private route: ActivatedRoute,

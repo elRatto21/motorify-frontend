@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ExpenseService } from '../../service/expense.service';
 import { Expense } from '../../data/expense';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './expense-list.component.html',
   styleUrl: './expense-list.component.scss',
 })
-export class ExpenseListComponent {
+export class ExpenseListComponent implements OnInit {
   expenseList: Expense[] = [];
   displayedColumns: string[] = [
     'date',
@@ -34,7 +34,6 @@ export class ExpenseListComponent {
   reloadData() {
     this.expenseService.getListByBike(this.bikeId).subscribe((expenses) => {
       this.expenseList = expenses;
-      console.log(this.expenseList);
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppAuthService } from '../../service/app.auth.service';
 import { BikeService } from '../../service/bike.service';
 import { ManufacturerService } from '../../service/manufacturer.service';
@@ -8,7 +8,7 @@ import { ManufacturerService } from '../../service/manufacturer.service';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   useralias = '';
   username = '';
 

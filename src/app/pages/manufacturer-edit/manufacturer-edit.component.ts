@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Manufacturer } from '../../data/manufacturer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ManufacturerService } from '../../service/manufacturer.service';
@@ -13,7 +13,7 @@ import {
   templateUrl: './manufacturer-edit.component.html',
   styleUrl: './manufacturer-edit.component.scss',
 })
-export class ManufacturerEditComponent {
+export class ManufacturerEditComponent implements OnInit {
   manufacturer = new Manufacturer();
 
   title: string = '';
