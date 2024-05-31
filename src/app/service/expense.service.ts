@@ -17,10 +17,23 @@ export class ExpenseService {
     );
   }
 
+  public getOne(id: number): Observable<Expense> {
+    return this.httpClient.get<Expense>(
+      environment.backendUrl + this.type + `/${id}`
+    );
+  }
+
   public delete(id: number): Observable<HttpResponse<string>> {
     return this.httpClient.delete<string>(
       environment.backendUrl + this.type + `/${id}`,
       { observe: 'response' }
+    );
+  }
+
+  public save(expense: Expense): Observable<Expense> {
+    return this.httpClient.post<Expense>(
+      environment.backendUrl + this.type,
+      expense
     );
   }
 }

@@ -39,7 +39,7 @@ export class ExpenseListComponent {
   }
 
   create() {
-    this.router.navigate(['expense/create/bike', this.bikeId]);
+    this.router.navigate(['expense/create', this.bikeId]);
   }
 
   delete(id: number) {
@@ -48,9 +48,5 @@ export class ExpenseListComponent {
         this.reloadData();
       },
     });
-  }
-
-  edit(id: number) {
-    this.router.navigate(['expense/edit', id]);
   }
 }
