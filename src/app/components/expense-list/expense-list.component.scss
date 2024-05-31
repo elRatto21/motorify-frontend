@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tableContainer {
+    width: 500px;
+    height: 275px;
+    overflow-y: scroll;
+}
+
+mat-icon {
+    scale: 150%;
+}
+
+.tableContainer button {
+    scale: 80%;
+}
+
+.tableContainer mat-icon {
+    scale: 125%;
+}
