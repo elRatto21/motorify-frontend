@@ -12,10 +12,10 @@ class MockBikeService {
     return of([{ id: 1, manufacturer: { name: 'Yamaha' }, model: 'YZF-R1' }]);
   }
   getListByUser(username: string) {
-    return of([{ id: 2, manufacturer: { name: 'Honda' }, model: 'CBR600RR' }]);
+    return of([{ id: 2, manufacturer: { name: 'Honda' }, model: 'CBR600RR', user: username }]);
   }
   delete(id: number) {
-    return of({});
+    return of({id: id});
   }
 }
 
@@ -30,7 +30,6 @@ describe('BikeListComponent', () => {
   let component: BikeListComponent;
   let fixture: ComponentFixture<BikeListComponent>;
   let bikeService: BikeService;
-  let authService: AppAuthService;
   let router: Router;
 
   beforeEach(async () => {
@@ -48,7 +47,6 @@ describe('BikeListComponent', () => {
     fixture = TestBed.createComponent(BikeListComponent);
     component = fixture.componentInstance;
     bikeService = TestBed.inject(BikeService);
-    authService = TestBed.inject(AppAuthService);
     router = TestBed.inject(Router);
     fixture.detectChanges();
   });

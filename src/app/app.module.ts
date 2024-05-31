@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BikeListComponent } from './pages/bike-list/bike-list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
+import { MatToolbar } from '@angular/material/toolbar';
 import { MatIcon } from '@angular/material/icon';
 import { MatIconButton, MatButton } from '@angular/material/button';
 import { MatMenu, MatMenuItem } from '@angular/material/menu';
@@ -27,7 +27,6 @@ import { IsInRoleDirective } from './dir/is.in.role.dir';
 import { IsInRolesDirective } from './dir/is.in.roles.dir';
 import { ManufacturerEditComponent } from './pages/manufacturer-edit/manufacturer-edit.component';
 import {
-  MatFormField,
   MatFormFieldModule,
   MatHint,
   MatLabel,
