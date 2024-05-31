@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppAuthService } from './service/app.auth.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AppAuthService } from './service/app.auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'motorify-frontend';
 
   useralias = '';
