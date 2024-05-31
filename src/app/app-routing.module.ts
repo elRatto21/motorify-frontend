@@ -9,6 +9,7 @@ import { BikeEditComponent } from './pages/bike-edit/bike-edit.component';
 import { BikeInfoComponent } from './pages/bike-info/bike-info.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ExpenseEditComponent } from './pages/expense-edit/expense-edit.component';
+import { MaintenanceEditComponent } from './pages/maintenance-edit/maintenance-edit.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,13 @@ const routes: Routes = [
   {
     path: 'expense/create/:id',
     component: ExpenseEditComponent,
+    pathMatch: 'full',
+    canActivate: [appCanActivate],
+    data: { roles: [AppRoles.User, AppRoles.Admin] },
+  },
+  {
+    path: 'maintenance/create/:id',
+    component: MaintenanceEditComponent,
     pathMatch: 'full',
     canActivate: [appCanActivate],
     data: { roles: [AppRoles.User, AppRoles.Admin] },
