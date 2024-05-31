@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>Create Expense</h1>
+  <form (ngSubmit)="save(expenseForm.value)" [formGroup]="expenseForm!">
+    <div class="inputs">
+      <mat-form-field>
+        <mat-label>Expense Type</mat-label>
+        <mat-select name="expenseType" formControlName="expenseType" required>
+          @for (expenseType of expenseTypeList; track expenseType) {
+          <mat-option [value]="expenseType">{{ expenseType }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          #inputName
+          formControlName="name"
+          matInput
+          maxlength="50"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input formControlName="amount" matInput required type="number" min="0" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input
+          formControlName="date"
+          matInput
+          [matDatepicker]="picker"
+          required
+        />
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="actions">
+      <button mat-raised-button (click)="back()">Cancel</button>
+      <button [disabled]="!expenseForm.valid" color="primary" mat-raised-button>
+        Save
+      </button>
+    </div>
+  </form>
+</div>
