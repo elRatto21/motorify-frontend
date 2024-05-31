@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>Create Maintenance</h1>
+  <form (ngSubmit)="save(maintenanceForm.value)" [formGroup]="maintenanceForm!">
+    <div class="inputs">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          #inputName
+          formControlName="name"
+          matInput
+          maxlength="50"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Mileage</mat-label>
+        <input
+          formControlName="mileage"
+          matInput
+          required
+          type="number"
+          min="0"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input
+          formControlName="date"
+          matInput
+          [matDatepicker]="picker"
+          required
+        />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Expenses</mat-label>
+        <mat-select name="expenseIds" formControlName="expenseIds" required multiple>
+          @for (expense of expenseList; track expense) {
+          <mat-option [value]="expense.id">{{ expense.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="actions">
+      <button mat-raised-button (click)="back()">Cancel</button>
+      <button
+        [disabled]="!maintenanceForm.valid"
+        color="primary"
+        mat-raised-button
+      >
+        Save
+      </button>
+    </div>
+  </form>
+</div>

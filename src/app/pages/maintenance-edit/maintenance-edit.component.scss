@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputs {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions button {
+    width: 45%;
+}

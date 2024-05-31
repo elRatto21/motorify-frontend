@@ -4,5 +4,5 @@ export class Maintenance {
     public name = '';
     public mileage = 0;
     public date = '';
-    public expenses = [];
+    public expenseIds = [];
 }

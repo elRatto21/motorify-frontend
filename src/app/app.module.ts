@@ -46,6 +46,7 @@ import { ExpenseListComponent } from './components/expense-list/expense-list.com
 import { ExpenseEditComponent } from './pages/expense-edit/expense-edit.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
+import { MaintenanceEditComponent } from './pages/maintenance-edit/maintenance-edit.component';
 
 export const authConfig: AuthConfig = {
   issuer: 'http://localhost:8080/realms/motorify',
@@ -83,6 +84,7 @@ export function storageFactory(): OAuthStorage {
     MaintenanceListComponent,
     ExpenseListComponent,
     ExpenseEditComponent,
+    MaintenanceEditComponent,
   ],
   imports: [
     HttpClientModule,
