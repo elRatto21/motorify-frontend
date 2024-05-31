@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormControl,
@@ -15,7 +15,7 @@ import { ExpenseService } from '../../service/expense.service';
   templateUrl: './maintenance-edit.component.html',
   styleUrl: './maintenance-edit.component.scss',
 })
-export class MaintenanceEditComponent {
+export class MaintenanceEditComponent implements OnInit {
   maintenance = new Maintenance();
   expenseList: Expense[] = [];
   bikeId: number = 0;

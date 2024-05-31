@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BikeService } from '../../service/bike.service';
 import { Router } from '@angular/router';
 import { Manufacturer } from '../../data/manufacturer';
