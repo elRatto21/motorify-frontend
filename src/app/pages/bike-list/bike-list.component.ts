@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BikeService } from '../../service/bike.service';
 import { Router } from '@angular/router';
 import { Manufacturer } from '../../data/manufacturer';
+import { AppAuthService } from '../../service/app.auth.service';
 
 export interface Bike {
   id: number;
@@ -15,15 +16,35 @@ export interface Bike {
   styleUrl: './bike-list.component.scss',
 })
 export class BikeListComponent {
+  isAdmin: boolean = false;
+  username: string = '';
   data: Bike[] = [];
-  constructor(private bikeService: BikeService, private router: Router) {
+  constructor(
+    private bikeService: BikeService,
+    private router: Router,
+    private authService: AppAuthService
+  ) {
+    this.authService.getRoles().subscribe((roles) => {
+      if (roles.includes('admin')) {
+        this.isAdmin = true;
+      }
+    });
+    this.authService.useraliasObservable.subscribe((alias) => {
+      this.username = alias;
+    });
     this.reloadData();
   }
 
   reloadData() {
-    this.bikeService.getList().subscribe((bikes) => {
-      this.data = bikes;
-    });
+    if (this.isAdmin) {
+      this.bikeService.getList().subscribe((bikes) => {
+        this.data = bikes;
+      });
+    } else {
+      this.bikeService.getListByUser(this.username).subscribe((bikes) => {
+        this.data = bikes;
+      });
+    }
   }
 
   edit(id: number) {

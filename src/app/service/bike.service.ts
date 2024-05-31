@@ -15,6 +15,12 @@ export class BikeService {
     return this.httpClient.get<Bike[]>(environment.backendUrl + this.type);
   }
 
+  public getListByUser(user: string): Observable<Bike[]> {
+    return this.httpClient.get<Bike[]>(
+      environment.backendUrl + this.type + `?user=${user}`
+    );
+  }
+
   public getOne(id: number): Observable<Bike> {
     return this.httpClient.get<Bike>(
       environment.backendUrl + this.type + `/${id}`
