@@ -1,0 +1,51 @@
+<div class="container">
+  <div>
+    <h1>Bike Info</h1>
+  </div>
+  <div class="info-wrapper">
+    <div class="info-bike">
+      <h2>Stats</h2>
+      <div class="info-inputs">
+        <mat-form-field>
+          <mat-label>Manufacturer</mat-label>
+          <input matInput value="{{ bike.manufacturer.name }}" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Model</mat-label>
+          <input matInput value="{{ bike.model }}" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Horsepower</mat-label>
+          <input matInput value="{{ bike.horsepower }}" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Mileage</mat-label>
+          <input matInput value="{{ bike.mileage }}" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Year</mat-label>
+          <input matInput value="{{ bike.year }}" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Weight</mat-label>
+          <input matInput value="{{ bike.weight }}" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Bike Type</mat-label>
+          <input matInput value="{{ bike.bikeType }}" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Id</mat-label>
+          <input matInput value="{{ bike.id }}" readonly />
+        </mat-form-field>
+    </div>
+      <button mat-icon-button (click)="edit(bike.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <div class="info-external">
+      <app-maintenance-list></app-maintenance-list>
+      <app-expense-list></app-expense-list>
+    </div>
+  </div>
+</div>
