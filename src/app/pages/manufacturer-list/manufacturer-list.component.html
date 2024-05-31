@@ -2,6 +2,14 @@
   <div>
     <h1>All Manufacturers</h1>
   </div>
+  <button
+    mat-icon-button
+    color="primary"
+    (click)="create()"
+    *appIsInRole="'admin'"
+  >
+    <mat-icon>add_circle</mat-icon>
+  </button>
   <div class="tableContainer">
     <table mat-table [dataSource]="data" class="table">
       <ng-container matColumnDef="id">
@@ -26,7 +34,9 @@
             <button mat-icon-button (click)="edit(element.id)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button (click)="delete(element.id)"><mat-icon color="warn">delete</mat-icon></button>
+            <button mat-icon-button (click)="delete(element.id)">
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
           </td>
         </ng-container>
       </div>

@@ -8,10 +8,14 @@
     width: 600px;
 }
 
-button {
+mat-icon {
+    scale: 150%;
+}
+
+.tableContainer button {
     scale: 80%;
 }
 
-mat-icon {
+.tableContainer mat-icon {
     scale: 125%;
 }

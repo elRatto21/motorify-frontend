@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ManufacturerService } from '../../service/manufacturer.service';
 import { Router } from '@angular/router';
+import { AppAuthService } from '../../service/app.auth.service';
 
 export interface Manufacturer {
   id: number;
@@ -15,11 +16,23 @@ export interface Manufacturer {
 })
 export class ManufacturerListComponent {
   data: Manufacturer[] = [];
+  displayedColumns: string[] = [];
   constructor(
     private manufacturerService: ManufacturerService,
-    private router: Router
+    private router: Router,
+    private authService: AppAuthService
   ) {
     this.reloadData();
+  }
+
+  ngOnInit(): void {
+    this.authService.getRoles().subscribe((roles) => {
+      if (roles.includes('admin')) {
+        this.displayedColumns = ['id', 'name', 'country', 'actions'];
+      } else {
+        this.displayedColumns = ['id', 'name', 'country'];
+      }
+    });
   }
 
   reloadData() {
@@ -40,5 +53,7 @@ export class ManufacturerListComponent {
     });
   }
 
-  displayedColumns: string[] = ['id', 'name', 'country', 'actions'];
+  create() {
+    this.router.navigate(['manufacturer/create']);
+  }
 }

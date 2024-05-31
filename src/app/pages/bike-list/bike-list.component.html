@@ -1,7 +1,10 @@
 <div class="container">
-  <div>
+  <div class="title">
     <h1>All Bikes</h1>
   </div>
+  <button mat-icon-button color="primary" (click)="create()">
+    <mat-icon>add_circle</mat-icon>
+  </button>
   <div class="tableContainer">
     <table mat-table [dataSource]="data" class="table">
       <ng-container matColumnDef="id">
@@ -11,7 +14,9 @@
 
       <ng-container matColumnDef="manufacturer">
         <th mat-header-cell *matHeaderCellDef>Manufacturer</th>
-        <td mat-cell *matCellDef="let element">{{ element.manufacturer.name }}</td>
+        <td mat-cell *matCellDef="let element">
+          {{ element.manufacturer.name }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="model">
@@ -22,9 +27,15 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button (click)="info(element.id)" color="primary"><mat-icon>info</mat-icon></button>
-          <button mat-icon-button (click)="edit(element.id)"><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button (click)="delete(element.id)" color="warn"><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button (click)="info(element.id)" color="primary">
+            <mat-icon>info</mat-icon>
+          </button>
+          <button mat-icon-button (click)="edit(element.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="delete(element.id)" color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
         </td>
       </ng-container>
 
