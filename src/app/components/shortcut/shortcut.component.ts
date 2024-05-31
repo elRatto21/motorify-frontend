@@ -11,7 +11,7 @@ export class ShortcutComponent {
   @Input() link: string = '';
   @Input() icon: string = 'link';
 
-  constructor(private router: Router) {};
+  constructor(private router: Router) {}
 
   navigate() {
     this.router.navigate([this.link]);

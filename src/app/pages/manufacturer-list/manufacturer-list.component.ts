@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ManufacturerService } from '../../service/manufacturer.service';
 import { Router } from '@angular/router';
 import { AppAuthService } from '../../service/app.auth.service';
@@ -14,7 +14,7 @@ export interface Manufacturer {
   templateUrl: './manufacturer-list.component.html',
   styleUrl: './manufacturer-list.component.scss',
 })
-export class ManufacturerListComponent {
+export class ManufacturerListComponent implements OnInit {
   data: Manufacturer[] = [];
   displayedColumns: string[] = [];
   constructor(

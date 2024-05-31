@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Expense } from '../../data/expense';
 import {
   UntypedFormBuilder,
@@ -13,7 +13,7 @@ import { ExpenseService } from '../../service/expense.service';
   templateUrl: './expense-edit.component.html',
   styleUrl: './expense-edit.component.scss',
 })
-export class ExpenseEditComponent {
+export class ExpenseEditComponent implements OnInit {
   expense = new Expense();
   expenseTypeList: string[] = ['PART', 'MAINTENANCE', 'FUEL', 'BILL'];
   title: string = '';
